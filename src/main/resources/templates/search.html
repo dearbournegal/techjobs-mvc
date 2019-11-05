@@ -37,7 +37,13 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
-
+<!--    <label th:each="${}" th:text="${column.value}"></label>-->
+    <table class="job-listing" th:each="result : ${results}">
+        <tr th:each="field : ${result.keySet()}">
+            <td th:text="${field}"></td>
+            <td th:text="${result.get(field)}"></td>
+        </tr>
+    </table>
 </div>
 
 </body>

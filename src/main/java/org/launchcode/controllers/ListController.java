@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+//To see the values of columns
 /**
  * Created by LaunchCode
  */
@@ -25,7 +25,7 @@ public class ListController {
         columnChoices.put("position type", "Position Type");
         columnChoices.put("all", "All");
     }
-
+    //this is the index
     @RequestMapping(value = "")
     public String list(Model model) {
 
@@ -33,7 +33,7 @@ public class ListController {
 
         return "list";
     }
-
+//Uses query parameters passed in the column to figure which values to fetch from JobData
     @RequestMapping(value = "values")
     public String listColumnValues(Model model, @RequestParam String column) {
 
@@ -52,6 +52,8 @@ public class ListController {
 
     }
 
+//Model is because is communicating with the JobData.csv file to the Controller
+//This method only displays matching specific jobs (matching a value in a specific column)
     @RequestMapping(value = "jobs")
     public String listJobsByColumnAndValue(Model model,
             @RequestParam String column, @RequestParam String value) {
